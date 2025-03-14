@@ -6,17 +6,20 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    env:
+      JWT_SECRET: ${{ secrets.JWT_SECRET }} # Using GitHub Secrets for JWT_SECRET
+
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+    - name: Checkout code
+      uses: actions/checkout@v3
 
-      - name: Install Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: "18"
+    - name: Install Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
 
-      - name: Install dependencies
-        run: npm install
+    - name: Install dependencies
+      run: npm install
 
-      - name: Run tests
-        run: npm test
+    - name: Run tests
+      run: npm test
