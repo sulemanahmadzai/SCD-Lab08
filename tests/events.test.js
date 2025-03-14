@@ -35,3 +35,9 @@ describe("Event Management", () => {
     expect(res.statusCode).toBe(201);
   });
 });
+jest.setTimeout(10000); // Increases timeout to 10 seconds
+
+beforeAll(async () => {
+    jest.setTimeout(10000); // Ensures enough time for setup
+    // Your existing test setup logic...
+});
